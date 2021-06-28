@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/bronte/Daniel_Gabriel_Guilherme/API/API.csproj": {}
+    "C:\\Users\\Principal\\Desktop\\Daniel_Gabriel_Guilherme\\API\\API.csproj": {}
   },
   "projects": {
-    "/home/bronte/Daniel_Gabriel_Guilherme/API/API.csproj": {
+    "C:\\Users\\Principal\\Desktop\\Daniel_Gabriel_Guilherme\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/bronte/Daniel_Gabriel_Guilherme/API/API.csproj",
+        "projectUniqueName": "C:\\Users\\Principal\\Desktop\\Daniel_Gabriel_Guilherme\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "/home/bronte/Daniel_Gabriel_Guilherme/API/API.csproj",
-        "packagesPath": "/home/bronte/.nuget/packages/",
-        "outputPath": "/home/bronte/Daniel_Gabriel_Guilherme/API/obj/",
+        "projectPath": "C:\\Users\\Principal\\Desktop\\Daniel_Gabriel_Guilherme\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\Principal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Principal\\Desktop\\Daniel_Gabriel_Guilherme\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/bronte/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Principal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,17 +40,51 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[5.0.7, )"
+              "version": "[8.0.1, )"
+            },
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.11.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.7, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0-preview.8.20414.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0-preview.8.20407.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[5.0.0-preview.8.20407.4, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[5.0.7, )"
+              "version": "[5.0.0-preview8, )"
             },
-            "Swashbuckle.AspNetCore": {
+            "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[6.1.4, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.1.4, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[6.1.4, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.7.1, )"
             }
           },
           "imports": [
@@ -69,7 +105,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
