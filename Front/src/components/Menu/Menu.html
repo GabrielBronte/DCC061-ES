@@ -1,0 +1,44 @@
+<div>
+    <v-navigation-drawer v-model="drawer" :mini-variant.sync="mini" expand-on-hover permanent fill-height app color="primary">
+        <!-- <v-list-item class="px-2 pt-2 pb-3" >
+            <v-btn large icon @click.stop="activeDrawer()">
+                <v-icon color="#FFF">menu</v-icon>
+            </v-btn>
+        </v-list-item> -->
+        <v-list  dark dense>
+            <template v-for="item in items">
+                <v-list-group v-if="item.children" :key="item.text" v-model="item.active"
+                active-class="primary white--text" :prepend-icon="item.icon" v-show="item.allowed">
+                    <template v-slot:activator>
+                        <v-list-item-content>
+                            <v-list-item-title>
+                                <span class="font-weight-bold">{{ item.text }}</span>
+                            </v-list-item-title>
+                        </v-list-item-content>
+                    </template>
+                    <v-list-item v-for="(child, i) in item.children" :key="i" v-show="child.allowed" class="smenu-item pl-10" @click="child.action()">
+                        <v-list-item-action class="" v-if="child.icon">
+                            <v-icon class="white--text">{{ child.icon }}</v-icon>
+                        </v-list-item-action>
+                        <v-list-item-content>
+                            <v-list-item-title>
+                                <span class="font-weight-bold white--text">{{ child.text }}</span>
+                            </v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list-group>
+                <v-list-item v-else :key="item.text" v-show="item.allowed" @click="item.action()">
+                    <v-list-item-action>
+                        <v-icon>{{ item.icon }}</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>
+                            <span class="font-weight-bold">{{ item.text }}</span>
+                        </v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+    
+            </template>
+        </v-list>
+    </v-navigation-drawer>
+</div>

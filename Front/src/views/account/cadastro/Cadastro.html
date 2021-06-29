@@ -1,0 +1,36 @@
+<v-container class="fill-height" fluid style="
+      padding-top: 10%;">
+  <v-layout row wrap justify-center align-center>
+  <v-card persistent max-width="400">
+      <v-card-title class="headline" style="display: flex; text-align: center; justify-content:center;">Nova Conta</v-card-title>
+      <v-row class="mx-5">
+          <v-col cols="12">
+              <v-text-field class="fadeIn second" id="userName-login" @blur="$v.cadastro.username.$touch()" label="Usuário"
+              v-model.trim="cadastro.username" name="userName" prepend-icon="mdi-account" :error-messages="userNameErrors"
+              type="text" @keydown.prevent.enter="authorization()" filled>
+              </v-text-field>
+          </v-col>
+          <v-col cols="12">
+            <v-text-field id="password" class="fadeIn second" v-model.trim="cadastro.password" name="password" label="Senha"
+            prepend-icon="mdi-lock" :type="showPassword ? 'text' : 'password'"
+            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'" @blur="$v.cadastro.password.$touch()"
+            :error-messages="passwordErrors" @click:append="showPassword = !showPassword" @keydown.prevent.enter="authorization()" filled>
+            </v-text-field>
+          </v-col>
+          <v-col style="display: flex; text-align: center; justify-content:center;">
+            <v-checkbox 
+              v-model="professor"
+              label="Sou um professor"
+            ></v-checkbox>
+        </v-col>
+      </v-row>
+      <v-card-actions style="display: flex; text-align: center; justify-content:center;">
+          <v-btn  color="success darken-1" class="float-right" @click="criarConta()">Criar conta</v-btn>
+          <v-btn  color="error darken-1" @click="cancelar()">Cancelar</v-btn>
+          </v-btn>
+      </v-card-actions>
+  </v-card>
+</v-layout>
+
+
+</v-container>

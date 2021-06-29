@@ -1,0 +1,48 @@
+<v-dialog
+v-model="getShowModal"
+:persistent="getPersistent"
+:max-width="getWidth"
+scrollable
+>
+<v-card>
+  <v-card-title :class="getTitleClass"> <!--class="headline" -->
+    {{getTitle}}
+  </v-card-title>
+  <v-card-text style="max-height: 800px">
+    <v-list flat>
+      <v-list-item-group>
+        <v-list-item offset-y bottom right
+        v-for="(item, i) in exibeListaErros"
+        :key="i"
+        >
+        <v-list-item-icon>
+          <v-icon v-text="icon" small></v-icon>
+        </v-list-item-icon>
+            <v-tooltip top> 
+              <template v-slot:activator="{ on, attrs }" disabled>
+                <v-list-item-content v-bind="attrs" v-on="on" disabled @click.prevent.default>
+                  <v-list-item-title v-text="item" disabled ></v-list-item-title>
+                </v-list-item-content>
+              </template>
+              <span>{{item}}</span>
+            </v-tooltip>
+          </v-list-item>
+          <infinite-loading @infinite="infiniteHandler" :identifier="infiniteId" >
+            <div slot="no-more">Fim dos erros.</div>
+            <div slot="no-results">Sem resultados.</div>
+          </infinite-loading>
+        </v-list-item-group>
+      </v-list>
+  </v-card-text>
+  <v-card-actions>
+    <v-spacer></v-spacer>
+    <v-btn
+      color="primary"
+      outlined
+      @click="getCancelFunction"
+    >
+      {{getCancelButtonText}}
+    </v-btn>
+  </v-card-actions>
+</v-card>
+</v-dialog>

@@ -1,0 +1,99 @@
+$vt-namespace: "Vue-Toastification" !default;
+$vt-toast-min-width: 326px !default;
+$vt-toast-max-width: 600px !default;
+$vt-toast-background: #ffffff !default;
+
+$vt-toast-min-height: 64px !default;
+$vt-toast-max-height: 800px !default;
+
+$vt-color-default: $primary !default;
+$vt-text-color-default: #fff !default;
+$vt-color-info: $info !default;
+$vt-text-color-info: #fff !default;
+$vt-color-success: $success !default;
+$vt-text-color-success: #fff !default;
+$vt-color-warning: $warning !default;
+$vt-text-color-warning: #fff !default;
+$vt-color-error: $error !default;
+$vt-text-color-error: #fff !default;
+
+$vt-color-progress-default: linear-gradient(
+  to right,
+  #4cd964,
+  #5ac8fa,
+  #007aff,
+  #34aadc,
+  #5856d6,
+  #ff2d55
+) !default;
+
+$vt-mobile: "only screen and (max-width : 600px)" !default;
+$vt-not-mobile: "only screen and (min-width : 600px)" !default;
+$vt-font-family: "Lato", Helvetica, "Roboto", Arial, sans-serif !default;
+$vt-z-index: 9999 !default;
+
+.#{$vt-namespace}__toast {
+  border-radius: 0px !important;
+  display: inline-flex;
+  position: relative;
+  max-height: $vt-toast-max-height;
+  min-height: $vt-toast-min-height;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  padding: 22px 24px;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);
+  justify-content: space-between;
+  font-family: $vt-font-family;
+  max-width: $vt-toast-max-width;
+  min-width: $vt-toast-min-width;
+  pointer-events: auto;
+  overflow: hidden;
+
+  &--default {
+    background-color: $vt-color-default;
+    color: $vt-text-color-default;
+  }
+  &--info {
+    background-color: $vt-color-info;
+    color: $vt-text-color-info;
+  }
+  &--success {
+    background-color: $vt-color-success;
+    color: $vt-text-color-success;
+  }
+  &--error {
+    background-color: $vt-color-error;
+    color: $vt-text-color-error;
+  }
+  &--warning {
+    background-color: $vt-color-warning;
+    color: $vt-text-color-warning;
+  }
+
+  @media #{$vt-mobile} {
+    border-radius: 0px;
+    margin-bottom: 0.5rem;
+  }
+
+  &-body {
+    flex: 1;
+    line-height: 24px;
+    font-size: 1.2em;
+    font-weight: 300;
+  }
+
+  &-component-body {
+    flex: 1;
+  }
+
+  &.disable-transition {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@import "vue-toastification/src/scss/_toastContainer";
+@import "vue-toastification/src/scss/_closeButton";
+@import "vue-toastification/src/scss/_progressBar";
+@import "vue-toastification/src/scss/_icon";
+@import "vue-toastification/src/scss/animations/_bounce";

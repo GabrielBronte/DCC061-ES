@@ -1,0 +1,110 @@
+<v-app>
+    <v-container fluid>
+        <v-card class="mx-3">
+            <v-card-title>Turmas</v-card-title>
+            <v-card-text class="text--primary">
+                <v-container fluid class="py-0">
+                    <v-row>
+                        <v-col cols="12" sm="12" md="12">
+                            <v-btn small dark color="primary" @click="addItem">
+                                Adicionar <v-icon small right>mdi-plus</v-icon>
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="12" sm="12" md="12">
+                            <v-data-table dense :headers="headers" :items="data" :items-per-page="5" class="elevation-2"
+                                :footer-props="footerOptions" no-data-text="Nenhum dado disponível">
+                                <template v-slot:item.actions="{ item }">
+                                    <v-icon small class="mr-4" color="primary" @click="editItem(item.id, item)">
+                                        mdi-pencil
+                                    </v-icon>
+                                    <v-icon small color="red" @click="deleteItem(item.id)">
+                                        mdi-delete
+                                    </v-icon>
+                                </template>
+                                <template slot="footer.page-text" slot-scope="item">
+                                    {{item.pageStart}} - {{item.pageStop}} de {{item.itemsLength}}
+                                </template>
+                            </v-data-table>
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </v-card-text>
+
+            <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn small color="warning" @click="validateItems">Validar <v-icon small right>mdi-check-circle</v-icon></v-btn>
+                <v-btn small color="success" @click="sendItems">Enviar <v-icon small right>mdi-send</v-icon></v-btn>
+            </v-card-actions>
+        </v-card>
+
+        <v-dialog v-model="dialogManager" persistent max-width="800">
+            <v-card>
+                <v-card-title class="headline">
+                    {{ modalTitle }}
+                    <v-spacer></v-spacer>
+                    <v-chip v-show="edition" color="red" dark>
+                        ID: {{ editionId }}
+                    </v-chip>
+                </v-card-title>
+                <v-card-text>
+                    <v-form>
+                        <v-container fluid class="py-0">
+                            <v-row>
+                                <v-col cols="12" sm="12" md="12">
+                                    <v-text-field dense required v-model.trim="item.classroomName"
+                                        prepend-icon="mdi-account" label="Nome da Turma" :counter="50" maxlength="50"
+                                        :error-messages="classroomNameError">
+                                    </v-text-field>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col cols="6" sm="6" md="6">
+                                    <v-text-field dense required v-model.number="item.studentNumber" type="number"
+                                        prepend-icon="mdi-account" label="Número de Alunos" v-mask="'######'"
+                                        :error-messages="studentNumberError" onkeydown="return event.keyCode != 69">
+                                    </v-text-field>
+                                </v-col>
+                                <v-col cols="6" sm="6" md="6">
+                                    <v-text-field dense required v-model.number="item.chairNumber" type="number"
+                                        prepend-icon="mdi-seat" label="Número de Cadeiras" v-mask="'######'"
+                                        :error-messages="chairNumberError" onkeydown="return event.keyCode != 69">
+                                    </v-text-field>
+                                </v-col>
+                            </v-row>
+                        </v-container>
+                    </v-form>
+                </v-card-text>
+                <v-card-actions class="px-6">
+                    <v-spacer></v-spacer>
+                    <v-btn small dark outlined color="error" @click="dialogManager = false">
+                        Cancelar<v-icon small right>mdi-close</v-icon>
+                    </v-btn>
+                    <v-btn small dark color="success" @click="saveData">
+                        Salvar<v-icon small right>mdi-check</v-icon>
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+
+        <v-dialog v-model="dialog" persistent max-width="800">
+            <v-card>
+                <v-card-title class="headline">Resultados da Validação</v-card-title>
+                <v-card-text>
+                    <v-list dense>
+                        <v-list-item v-for="(m, i) in messages" :key="i">
+                            <v-list-item-content>
+                                <v-list-item-title>{{m}}</v-list-item-title>
+                            </v-list-item-content>
+                        </v-list-item>
+                    </v-list>
+                </v-card-text>
+                <v-card-actions class="px-6">
+                    <v-spacer></v-spacer>
+                    <v-btn color="primary" @click="dialog = false">Ok</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
+    </v-container>
+</v-app>

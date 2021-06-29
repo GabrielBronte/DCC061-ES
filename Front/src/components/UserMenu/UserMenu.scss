@@ -1,0 +1,15 @@
+.menu {
+    cursor: pointer !important;
+    height: 50px !important;
+    padding-top: 1px;
+  }
+  
+  .name {
+    margin-right: 10px;
+  }
+  
+  @media (max-width: 600px) {
+    .name {
+      display: none;
+    }
+}

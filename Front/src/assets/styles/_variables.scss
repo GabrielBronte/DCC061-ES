@@ -1,0 +1,48 @@
+$primary: #673ab7;
+$secondary: #f6be00;
+$accent: #004C99;
+$error: #FF5252;
+$warning: #FB8C00;
+$info: #2196f3;
+$success: #4CAF50;
+$light: white;
+$dark: black;
+
+// COLORS
+$blue1: #0B79D9;
+$blue2: #0884A3;
+$blue3: #02B3C5;
+$blue4: #03afc2;
+$darkblue: #1F385B;
+$greyblue: #2D3540;
+$gradblue: #004C99;
+$grey1: #747678;
+$grey2: #D0D0CE;
+$yellow: #F6BE00;
+$cinza-claro: lightgray;
+$vermelho: red;
+
+:export {
+  primary: $primary;
+  secondary: $secondary;
+  accent: $accent;
+  error: $error;
+  warning: $warning;
+  info: $info;
+  success: $success;
+
+  blue1: $blue1;
+  blue2: $blue2;
+  blue3: $blue3;
+  blue4: $blue4;
+  darkblue: $darkblue;
+  greyblue: $greyblue;
+  gradblue: $gradblue;
+  grey1: $grey1;
+  grey2: $grey2;
+  light: $light;
+  dark: $dark;
+  yellow: $yellow;
+  cinza-claro: $cinza-claro;
+  vermelho: $vermelho;
+}

@@ -1,0 +1,29 @@
+<v-dialog
+      v-model="getShowModal"
+      :persistent="getPersistent"
+      :max-width="getWidth"
+    >
+      <v-card>
+         <v-card-title :class="getTitleClass"> <!--class="headline" -->
+          {{getTitle}}
+        </v-card-title>
+        <v-card-text :class="getBodyClass">{{getBody}}</v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            outlined
+            @click="getCancelFunction"
+          >
+            {{getCancelButtonText}}
+          </v-btn>
+          <v-btn
+            color="primary"
+            depressed
+            @click="getSubmitFunction"
+          >
+          {{getSubmitButtonText}}
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+  </v-dialog>

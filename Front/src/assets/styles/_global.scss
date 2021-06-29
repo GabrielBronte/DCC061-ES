@@ -1,0 +1,276 @@
+.height-center {
+  height: calc(80vh);
+}
+
+.v-data-table__progress > th {
+  background-color: white!important;
+}
+
+.pull-left {
+  text-align: left;
+  padding: 5px;
+}
+.pull-right {
+  text-align: right;
+  padding: 5px;
+}
+
+input:-webkit-autofill {
+  -webkit-animation-delay: 1s;
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
+  animation-delay: 1s;
+  animation-name: autofill;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes autofill {
+  0%,
+  100% {
+    color: $cinza-claro;
+    background: transparent;
+  }
+}
+
+@keyframes autofill {
+  0%,
+  100% {
+    color: $cinza-claro;
+    background: transparent;
+  }
+}
+
+#app {
+  font-family: "Libre Franklin", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.background-default {
+  background-color: $cinza-claro;
+  overflow: auto;
+}
+
+.theme--light.v-data-table thead.v-data-table-header tr:last-child th {
+  background-color: $primary !important;
+  color: white;
+  // width: 100% !important;
+}
+
+.theme--light.v-data-table thead.v-data-table-header tr:last-child th:hover {
+  color: white !important;
+}
+
+.theme--light.v-data-table thead.v-data-table-header tr:last-child th {
+  background-color: $primary !important;
+  color: white;
+  // width: 100% !important;
+  min-width: 60px !important;
+}
+
+.v-data-table td,
+.v-data-table th {
+  padding: 6px !important;
+  overflow: hidden !important;
+}
+
+// .v-data-table tr td:first-child,
+// .v-data-table tr th:first-child {
+//   padding-left: 20px !important;
+// }
+
+div.content {
+  background-color: white;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  padding-right: 15px !important;
+  margin: 0px !important;
+}
+
+.container {
+  width: 100%;
+  padding: 0px ;
+}
+
+.alinhar-btns {
+  margin-left: 0% !important;
+  height: 116px;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.bullet-ativo {
+  color: $primary;
+}
+
+.bullet-inativo {
+  color: $vermelho;
+}
+
+.titulo {
+  padding-bottom: 20px !important;
+  box-shadow: 0 0 78px -20px black !important;
+  border-radius: 10px !important;
+}
+
+.texto-titulo {
+  padding: 20px !important;
+  margin-top: 20px;
+  font-size: 18pt;
+  color: $primary;
+  font-weight: bold;
+}
+
+.theme--light.v-data-table.table-select thead tr th:first-child {
+  background-color: $primary !important;
+  width: 5px !important;
+}
+
+.theme--light.v-data-table.table-select
+  thead
+  tr
+  th
+  .v-data-table__checkboxv-simple-checkbox {
+  background-color: $primary !important;
+  width: 5px !important;
+}
+
+.card-content {
+  margin-top: 10px;
+}
+
+.card-info {
+  padding-top: 30px;
+  li {
+    list-style: none;
+  }
+}
+
+// .btn-default {
+//   // color: $default;
+// }
+
+.btn-primary {
+  color: $primary;
+}
+
+.label-form {
+  color: $primary;
+  font-weight: bold;
+}
+
+.btn-acao {
+  color: $primary;
+  border-radius: 5px !important;
+  border: 1px solid $primary;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.action {
+  font-size: 18px !important;
+}
+
+.table-select .v-table thead tr th:first-child {
+  display: none !important;
+}
+
+// Customização do SweetAlert
+.swal2-container {
+  font-family: "Libre Franklin", sans-serif;
+}
+
+.swal2-title {
+  font-size: 20px !important;
+}
+
+.swal2-content {
+  font-size: 15px !important;
+}
+
+#grid-eventos .v-data-table__divider {
+  max-width: 200px;
+}
+
+.v-navigation-drawer__content {
+  padding-top: 5px;
+}
+
+header {
+  z-index: 10!important;
+}
+
+header > header.v-app-bar {
+  z-index: 10;
+}
+
+th span {
+  color: white !important;
+}
+
+th i {
+  color: white !important;
+}
+
+.scrollable-grid table {
+  width: max-content!important;
+  min-width: 100%!important;
+}
+
+.theme--light.v-btn.v-btn--outlined.v-btn--text {
+  border-color: inherit!important;
+}
+
+.f-right {
+  float: right;
+}
+
+.p-0 {
+  padding: 0!important;
+}
+
+.p-bottom-0 {
+  padding-bottom: 0!important;
+}
+
+.p-top-0 {
+  padding-top: 0!important;
+}
+
+.m-right-15 {
+  margin-left: 15px;
+}
+
+.m-left-15 {
+  margin-left: 15px;
+}
+
+
+.titulo-grid {
+  margin-top: 20px;
+  font-size: 15pt;
+  color: $primary;
+  font-weight: bold;
+}
+
+.acao-tela {
+  min-height: 48px;
+  background-color: lightgray;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.v-data-table.log-operacao > .v-data-table__wrapper> table > tbody >tr > td {
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html {
+  overflow-y: overlay!important;
+}
