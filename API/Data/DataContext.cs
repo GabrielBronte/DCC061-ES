@@ -20,7 +20,7 @@ namespace API.Data
         public DbSet<Group> Groups { get; set; }
         public DbSet<Quiz> Quiz { get; set; }
         public DbSet<Connection> Connections { get; set; }
-
+        public DbSet<Pontuacao> Pontuacao { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

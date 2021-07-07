@@ -7,6 +7,6 @@ namespace API.Entities
         public int Id { get; set; }
         public string Topico { get; set; }
         public List<Questao> Questao { get; set; }
-        
+        public List<Pontuacao> Pontuacao { get; set; }
     }
 }

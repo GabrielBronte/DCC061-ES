@@ -12,13 +12,11 @@ namespace API.Controllers
 {
     public class QuizController : BaseApiController
     {
-        //private readonly IQuizRepository _quizRepository;
         private readonly DataContext _context;
 
         public QuizController(DataContext context)
         {
             _context = context;
-            //_quizRepository = quizRepository;
         }
 
         [HttpPost("quizRegister")]

@@ -187,6 +187,35 @@ namespace API.Data.Migrations
                     b.ToTable("Groups");
                 });
 
+            modelBuilder.Entity("API.Entities.Pontuacao", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
+                    b.Property<int?>("QuizId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("idAluno")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("idQuiz")
+                        .HasColumnType("integer");
+
+                    b.Property<float>("pontuacao")
+                        .HasColumnType("real");
+
+                    b.Property<float>("tempoQuiz")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuizId");
+
+                    b.ToTable("Pontuacao");
+                });
+
             modelBuilder.Entity("API.Entities.Questao", b =>
                 {
                     b.Property<int>("id")
@@ -340,6 +369,13 @@ namespace API.Data.Migrations
                         .WithMany("Connections")
                         .HasForeignKey("GroupName")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("API.Entities.Pontuacao", b =>
+                {
+                    b.HasOne("API.Entities.Quiz", null)
+                        .WithMany("Pontuacao")
+                        .HasForeignKey("QuizId");
                 });
 
             modelBuilder.Entity("API.Entities.Questao", b =>
