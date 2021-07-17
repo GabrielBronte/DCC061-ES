@@ -1,10 +1,15 @@
+using System.Collections.Generic;
+
 namespace API.Entities
 {
     public class Alternativas
     {
-        public int id { get; set; }
-        public string descricao { get; set; }
-        public string comentario { get; set; }
-        public bool eCorreto { get; set; }
+        public int Id { get; set; }
+        public int QuestaoId { get; set; }
+        public Questao Questao { get; set; }
+        public string Descricao { get; set; }
+        public string Comentario { get; set; }
+        public bool ECorreto { get; set; }
+
     }
 }

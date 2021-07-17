@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
 using API.DTOs;
@@ -14,8 +15,11 @@ namespace API.Controllers
     {
         private readonly DataContext _context;
 
-        public QuizController(DataContext context)
+        public readonly IMapper _mapper ;
+
+        public QuizController(DataContext context, IMapper mapper)
         {
+            _mapper = mapper;
             _context = context;
         }
 
@@ -24,8 +28,9 @@ namespace API.Controllers
         {
             var quiz = new Quiz
             {
-                Topico = quizDto.topico,
-                Questao = quizDto.questao
+                Topico = quizDto.Topico,
+                //Questao = _mapper.Map<List<Questao>>(quizDto.Questao)
+                Questao = quizDto.Questao
             };
 
             _context.Quiz.Add(quiz);
@@ -34,6 +39,21 @@ namespace API.Controllers
 
             return quiz;
         }
+
+        [HttpGet]
+        public async Task<ActionResult<List<Questao>>> GetQuizbyId(int idQuiz)
+        {
+            if(!await QuizExists(idQuiz)) return BadRequest("idQuiz invalido");
+            
+            return await  _context.Questao.Include(p => p.Alternativas).Where(x => x.QuizId == idQuiz).ToListAsync();
+
+        }
+
+        private async Task<bool> QuizExists(int id)
+        {
+            return await _context.Quiz.AnyAsync(x => x.Id == id );
+        }
+
     }
 
 }

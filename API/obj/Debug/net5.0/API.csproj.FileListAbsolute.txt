@@ -134,3 +134,6 @@ C:/Users/Principal/Desktop/Daniel_Gabriel_Guilherme/API/obj/Debug/net5.0/API.gen
 /home/bronte/Daniel_Gabriel_Guilherme/API/obj/Debug/net5.0/ref/API.dll
 /home/bronte/Daniel_Gabriel_Guilherme/API/obj/Debug/net5.0/API.pdb
 /home/bronte/Daniel_Gabriel_Guilherme/API/obj/Debug/net5.0/API.genruntimeconfig.cache
+/home/bronte/Daniel_Gabriel_Guilherme/API/bin/Debug/net5.0/Microsoft.AspNetCore.JsonPatch.dll
+/home/bronte/Daniel_Gabriel_Guilherme/API/bin/Debug/net5.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/home/bronte/Daniel_Gabriel_Guilherme/API/bin/Debug/net5.0/Newtonsoft.Json.Bson.dll

@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210707191751_Pontuacao")]
-    partial class Pontuacao
+    [Migration("20210717202015_Nseimeo")]
+    partial class Nseimeo
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,26 +23,26 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.Alternativas", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .UseIdentityByDefaultColumn();
 
-                    b.Property<int?>("Questaoid")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("comentario")
+                    b.Property<string>("Comentario")
                         .HasColumnType("text");
 
-                    b.Property<string>("descricao")
+                    b.Property<string>("Descricao")
                         .HasColumnType("text");
 
-                    b.Property<bool>("eCorreto")
+                    b.Property<bool>("ECorreto")
                         .HasColumnType("boolean");
 
-                    b.HasKey("id");
+                    b.Property<int>("QuestaoId")
+                        .HasColumnType("integer");
 
-                    b.HasIndex("Questaoid");
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestaoId");
 
                     b.ToTable("Alternativas");
                 });
@@ -220,7 +220,7 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.Questao", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .UseIdentityByDefaultColumn();
@@ -228,10 +228,10 @@ namespace API.Data.Migrations
                     b.Property<string>("Pergunta")
                         .HasColumnType("text");
 
-                    b.Property<int?>("QuizId")
+                    b.Property<int>("QuizId")
                         .HasColumnType("integer");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.HasIndex("QuizId");
 
@@ -341,9 +341,11 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.Alternativas", b =>
                 {
-                    b.HasOne("API.Entities.Questao", null)
+                    b.HasOne("API.Entities.Questao", "Questao")
                         .WithMany("Alternativas")
-                        .HasForeignKey("Questaoid");
+                        .HasForeignKey("QuestaoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("API.Entities.AppUserRole", b =>
@@ -382,9 +384,11 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.Questao", b =>
                 {
-                    b.HasOne("API.Entities.Quiz", null)
+                    b.HasOne("API.Entities.Quiz", "Quiz")
                         .WithMany("Questao")
-                        .HasForeignKey("QuizId");
+                        .HasForeignKey("QuizId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

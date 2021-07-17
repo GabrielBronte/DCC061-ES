@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace API.Data.Migrations
 {
-    public partial class Pontuacao : Migration
+    public partial class Nseimeo : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -232,48 +232,48 @@ namespace API.Data.Migrations
                 name: "Questao",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "integer", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Pergunta = table.Column<string>(type: "text", nullable: true),
-                    QuizId = table.Column<int>(type: "integer", nullable: true)
+                    QuizId = table.Column<int>(type: "integer", nullable: false),
+                    Pergunta = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Questao", x => x.id);
+                    table.PrimaryKey("PK_Questao", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Questao_Quiz_QuizId",
                         column: x => x.QuizId,
                         principalTable: "Quiz",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Alternativas",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "integer", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    descricao = table.Column<string>(type: "text", nullable: true),
-                    comentario = table.Column<string>(type: "text", nullable: true),
-                    eCorreto = table.Column<bool>(type: "boolean", nullable: false),
-                    Questaoid = table.Column<int>(type: "integer", nullable: true)
+                    QuestaoId = table.Column<int>(type: "integer", nullable: false),
+                    Descricao = table.Column<string>(type: "text", nullable: true),
+                    Comentario = table.Column<string>(type: "text", nullable: true),
+                    ECorreto = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Alternativas", x => x.id);
+                    table.PrimaryKey("PK_Alternativas", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Alternativas_Questao_Questaoid",
-                        column: x => x.Questaoid,
+                        name: "FK_Alternativas_Questao_QuestaoId",
+                        column: x => x.QuestaoId,
                         principalTable: "Questao",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Alternativas_Questaoid",
+                name: "IX_Alternativas_QuestaoId",
                 table: "Alternativas",
-                column: "Questaoid");
+                column: "QuestaoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

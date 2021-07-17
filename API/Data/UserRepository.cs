@@ -68,5 +68,11 @@ namespace API.Data
         {
             _context.Entry(user).State = EntityState.Modified;
         }
+
+        public async Task<Quiz> GetQuizByIdAsync(int id)
+        {
+            return await _context.Quiz
+                .SingleOrDefaultAsync(x => x.Id == id);
+        }
     }
 }

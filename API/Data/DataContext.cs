@@ -16,15 +16,28 @@ namespace API.Data
         public DataContext(DbContextOptions options) : base(options)
         {
         }
-
         public DbSet<Group> Groups { get; set; }
         public DbSet<Quiz> Quiz { get; set; }
+        public DbSet<Questao> Questao { get; set; }
         public DbSet<Connection> Connections { get; set; }
         public DbSet<Pontuacao> Pontuacao { get; set; }
+        public DbSet<Alternativas> Alternativas { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+/*
+            builder.Entity<Questao>()
+                .HasOne(x => x.Quiz)
+                .WithMany(g => g.Questao)
+                .HasForeignKey( x => x.QuizId)
+                .OnDelete(DeleteBehavior.Cascade);
 
+            builder.Entity<Alternativas>()
+                .HasOne(x => x.Questao)
+                .WithMany(g => g.Alternativas)
+                .HasForeignKey( x => x.QuestaoId)
+                .OnDelete(DeleteBehavior.Cascade);
+*/
             builder.Entity<Group>()
                 .HasMany(x => x.Connections)
                 .WithOne()
@@ -38,5 +51,5 @@ namespace API.Data
         }
     }
 
-    
+
 }

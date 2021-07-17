@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kzDQSZdguxKcf8aLzBqTK9XZT8fyn3XrgJUNdHvqH7KvGVAVYJRIe2zMDrQzYVJ2PBMeMqp10/yaa6OssQNnHA==",
+  "dgSpecHash": "+EajGZWaqFYcYd+MMVo3LJ7h2jaRN78lYk4z/MZGCh4+hMtVmZIGwzVbVCDCk7fANWlfp0NeeN/l+5Z0bAgHBA==",
   "success": true,
   "projectFilePath": "/home/bronte/Daniel_Gabriel_Guilherme/API/API.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,8 @@
     "/home/bronte/.nuget/packages/microsoft.aspnetcore.cryptography.internal/5.0.0-preview.8.20414.8/microsoft.aspnetcore.cryptography.internal.5.0.0-preview.8.20414.8.nupkg.sha512",
     "/home/bronte/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/5.0.0-preview.8.20414.8/microsoft.aspnetcore.cryptography.keyderivation.5.0.0-preview.8.20414.8.nupkg.sha512",
     "/home/bronte/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/5.0.0-preview.8.20414.8/microsoft.aspnetcore.identity.entityframeworkcore.5.0.0-preview.8.20414.8.nupkg.sha512",
+    "/home/bronte/.nuget/packages/microsoft.aspnetcore.jsonpatch/5.0.8/microsoft.aspnetcore.jsonpatch.5.0.8.nupkg.sha512",
+    "/home/bronte/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/5.0.8/microsoft.aspnetcore.mvc.newtonsoftjson.5.0.8.nupkg.sha512",
     "/home/bronte/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/home/bronte/.nuget/packages/microsoft.data.sqlite.core/5.0.0-preview.8.20407.4/microsoft.data.sqlite.core.5.0.0-preview.8.20407.4.nupkg.sha512",
     "/home/bronte/.nuget/packages/microsoft.dotnet.platformabstractions/3.1.5/microsoft.dotnet.platformabstractions.3.1.5.nupkg.sha512",
@@ -40,7 +42,8 @@
     "/home/bronte/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/5.5.0/microsoft.identitymodel.protocols.openidconnect.5.5.0.nupkg.sha512",
     "/home/bronte/.nuget/packages/microsoft.identitymodel.tokens/6.7.1/microsoft.identitymodel.tokens.6.7.1.nupkg.sha512",
     "/home/bronte/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
-    "/home/bronte/.nuget/packages/newtonsoft.json/12.0.1/newtonsoft.json.12.0.1.nupkg.sha512",
+    "/home/bronte/.nuget/packages/newtonsoft.json/12.0.2/newtonsoft.json.12.0.2.nupkg.sha512",
+    "/home/bronte/.nuget/packages/newtonsoft.json.bson/1.0.2/newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "/home/bronte/.nuget/packages/npgsql/4.1.4/npgsql.4.1.4.nupkg.sha512",
     "/home/bronte/.nuget/packages/npgsql.entityframeworkcore.postgresql/5.0.0-preview8/npgsql.entityframeworkcore.postgresql.5.0.0-preview8.nupkg.sha512",
     "/home/bronte/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.0.3/sqlitepclraw.bundle_e_sqlite3.2.0.3.nupkg.sha512",
