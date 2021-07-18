@@ -6,6 +6,8 @@ const About = () => import("@/views/about/About.vue");
 const Demo = () => import("@/views/demo/Demo.vue");
 import Header from "@/components/Header/Header.vue";
 import Footer from "@/components/Footer/Footer.vue";
+import QuizRoutes from "./quiz/index"
+import BemVindoRoutes from "./bemVindo/index"
 
 const routes: RouteConfig[] = [
   {
@@ -30,6 +32,8 @@ const routes: RouteConfig[] = [
         name: "demo",
         component: Demo
       },
+      ...QuizRoutes,
+      ...BemVindoRoutes,
       // ...ClientRelationshipRoutes,
       // ...InconsistencyRoutes,
       // ...SchedulerRoutes,

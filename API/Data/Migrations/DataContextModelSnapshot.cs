@@ -382,7 +382,7 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.Questao", b =>
                 {
-                    b.HasOne("API.Entities.Quiz", "Quiz")
+                    b.HasOne("API.Entities.Quiz", null)
                         .WithMany("Questao")
                         .HasForeignKey("QuizId")
                         .OnDelete(DeleteBehavior.Cascade)

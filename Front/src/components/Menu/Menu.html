@@ -6,7 +6,7 @@
             </v-btn>
         </v-list-item> -->
         <v-list  dark dense>
-            <template v-for="item in items">
+            <template v-for="item in items" v-if="roleProfessor" >
                 <v-list-group v-if="item.children" :key="item.text" v-model="item.active"
                 active-class="primary white--text" :prepend-icon="item.icon" v-show="item.allowed">
                     <template v-slot:activator>
@@ -16,7 +16,7 @@
                             </v-list-item-title>
                         </v-list-item-content>
                     </template>
-                    <v-list-item v-for="(child, i) in item.children" :key="i" v-show="child.allowed" class="smenu-item pl-10" @click="child.action()">
+                    <v-list-item v-for="(child, i) in item.children" :key="i" v-show="child.allowed" class="smenu-item pl-10" @click="child.action()" >
                         <v-list-item-action class="" v-if="child.icon">
                             <v-icon class="white--text">{{ child.icon }}</v-icon>
                         </v-list-item-action>
@@ -34,6 +34,39 @@
                     <v-list-item-content>
                         <v-list-item-title>
                             <span class="font-weight-bold">{{ item.text }}</span>
+                        </v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+    
+            </template>
+            <template v-for="itemAluno in itemsAluno" v-if="!roleProfessor" >
+                <v-list-group v-if="itemAluno.children" :key="itemAluno.text" v-model="itemAluno.active"
+                active-class="primary white--text" :prepend-icon="itemAluno.icon" v-show="itemAluno.allowed">
+                    <template v-slot:activator>
+                        <v-list-item-content>
+                            <v-list-item-title>
+                                <span class="font-weight-bold">{{ itemAluno.text }}</span>
+                            </v-list-item-title>
+                        </v-list-item-content>
+                    </template>
+                    <v-list-item v-for="(child, i) in item.children" :key="i" v-show="child.allowed" class="smenu-item pl-10" @click="child.action()" >
+                        <v-list-item-action class="" v-if="child.icon">
+                            <v-icon class="white--text">{{ child.icon }}</v-icon>
+                        </v-list-item-action>
+                        <v-list-item-content>
+                            <v-list-item-title>
+                                <span class="font-weight-bold white--text">{{ child.text }}</span>
+                            </v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list-group>
+                <v-list-item v-else :key="itemAluno.text" v-show="itemAluno.allowed" @click="itemAluno.action()">
+                    <v-list-item-action>
+                        <v-icon>{{ itemAluno.icon }}</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>
+                            <span class="font-weight-bold">{{ itemAluno.text }}</span>
                         </v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>

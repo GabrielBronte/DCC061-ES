@@ -28,7 +28,7 @@ export default class Login extends Vue {
   public notify = Notify();
   logoUrl = require("../../../assets/logo.png");
 
-  public accountHttpService = httpClient("Account", process.env.VUE_APP_API_URL);
+  public accountHttpService = httpClient(`Account`,`https://localhost:5001/api`);
 
   created() {
     this.modAuth.resetState();
@@ -43,13 +43,12 @@ export default class Login extends Vue {
           if (response.data.token) {
             this.setAuthToken(response.data.token);
             this.modAuth.setUserName(response.data.username);
-            // this.modAuth.setPermissions(response.data.permissions);
-
+            this.modAuth.setPermissions(response.data.role);
             // this.modAuth.setAdministrationCode(
             //   response.data.administrationCode
             // );
 
-            this.$router.push("/main");
+            this.$router.push("/bemVindo");
           } else {
             this.notify.error(response.data.message);
           }

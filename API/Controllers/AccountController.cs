@@ -43,18 +43,38 @@ namespace API.Controllers
             {
                 return BadRequest(result.Errors);
             }
-            var roleResult = await _userManager.AddToRoleAsync(user, "Member");
 
-            if (!roleResult.Succeeded)
+            if (registerDto.Username == "professor")
+            {
+                var roleResult = await _userManager.AddToRoleAsync(user, "Admin");
+
+                if (!roleResult.Succeeded)
+                {
+                    return BadRequest(result.Errors);
+                }
+
+
+                return new UserDto
+                {
+                    Username = user.UserName,
+                    Token = await _tokenService.CreateToken(user),
+                };
+            }
+
+            var roleResulter = await _userManager.AddToRoleAsync(user, "Member");
+
+            if (!roleResulter.Succeeded)
             {
                 return BadRequest(result.Errors);
             }
+
 
             return new UserDto
             {
                 Username = user.UserName,
                 Token = await _tokenService.CreateToken(user),
             };
+
         }
 
         [HttpPost("login")]
@@ -70,11 +90,23 @@ namespace API.Controllers
 
             if (!result.Succeeded) return Unauthorized();
 
-            return new UserDto
+            if (loginDto.Username == "professor")
             {
-                Username = user.UserName,
-                Token = await _tokenService.CreateToken(user),
-            };
+                return new UserDto
+                {
+                    Username = user.UserName,
+                    Token = await _tokenService.CreateToken(user),
+                    Role = "professor"
+                };
+            }
+
+                return new UserDto
+                {
+                    Username = user.UserName,
+                    Token = await _tokenService.CreateToken(user),
+                    Role = "aluno"
+                };
+            
         }
     
         private async Task<bool> UserExists(string username)

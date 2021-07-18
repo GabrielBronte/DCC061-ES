@@ -20,18 +20,39 @@ import Notify from "@/core/notify";
 export default class Cadastro extends Vue {
 
     
+  public accountHttpService = httpClient(`Account`,`https://localhost:5001/api`);
   public remenderMe = true;
   public showPassword = false;
   public regional: KeyValue[] = [];
   public cadastro: CadastroModel = new CadastroModel();
   private modAuth = getModule(Auth, store);
   public notify = Notify();
-  public professor = false;
-  public aluno = false;
+  public setAuthToken(token: string) {
+    this.modAuth.setAccessToken(token);
+  }
 
-  public criarConta(){
-    //this.professor? this.cadastro.role = "Professor" : this.cadastro.role = "Aluno";
-    this.$router.push("/account/login");
+  public criarConta() {
+    if (!this.$v.$invalid) {
+      
+      this.accountHttpService
+        .post({ action: "register", body: this.cadastro })
+        .then(response => {
+          if (response.data.token) {
+            this.setAuthToken(response.data.token);
+            this.modAuth.setUserName(response.data.username);
+            if(response.data.username == "professor"){
+              this.modAuth.setPermissions("professor");
+            }else{
+              this.modAuth.setPermissions("aluno");
+            }
+            this.$router.push("/bemVindo");
+          } else {
+            this.notify.error(response.data.message);
+          }
+        });
+    } else {
+      this.$v.$touch();
+    }
   }
 
   public cancelar(){

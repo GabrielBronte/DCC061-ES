@@ -16,7 +16,7 @@ export default class Auth extends VuexModule {
   }
 
   @Mutation
-  public setPermissions(permissions: string[]) {
+  public setPermissions(permissions: string) {
     this.userInfo.permissions = permissions;
   }
 

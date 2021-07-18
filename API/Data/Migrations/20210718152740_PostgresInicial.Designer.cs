@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210717202015_Nseimeo")]
-    partial class Nseimeo
+    [Migration("20210718152740_PostgresInicial")]
+    partial class PostgresInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -384,7 +384,7 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.Questao", b =>
                 {
-                    b.HasOne("API.Entities.Quiz", "Quiz")
+                    b.HasOne("API.Entities.Quiz", null)
                         .WithMany("Questao")
                         .HasForeignKey("QuizId")
                         .OnDelete(DeleteBehavior.Cascade)

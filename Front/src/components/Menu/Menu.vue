@@ -21,13 +21,24 @@ export default class Menu extends Vue {
   public mini = true;
   public drawer = false;
   public items: any[] = [];
+  public itemsAluno: any[] = [];
   public notify = Notify();
+  public roleProfessor= false;
   logoUrl = require("../../assets/logo.png");
 
   public authStore = getModule(Auth, this.$store);
 
+  mounted(){
+    
+    this.roleProfessor=this.ehProfessor()
+  }
+
   get userName() {
     return this.authStore.userName;
+  }
+
+  get permissions() {
+    return this.authStore.permissions;
   }
 
   public logout() {
@@ -38,9 +49,19 @@ export default class Menu extends Vue {
   public closeAllMenu() {
     if (this.mini) {
       this.items.forEach((item) => (item.active = false));
+      this.itemsAluno.forEach((itemAluno) => (itemAluno.active = false));
     }
   }
 
+  public ehProfessor(){
+    if (this.authStore.permissions.toString() =="professor"){
+      return true;
+    }
+    else {
+      return false;
+    }    
+  }
+  
   created() {
     this.items = [
       {
@@ -48,73 +69,49 @@ export default class Menu extends Vue {
         "icon-alt": "mdi-chevron-down",
         text: "Home",
         allowed: true,
-        action: () => this.redirect("/main")
+        action: () => this.redirect("/bemVindo")
+      },
+      {
+        icon: "mdi-checkbox-marked-circle-outline",
+        "icon-alt": "mdi-chevron-down",
+        text: "Criar Quiz",
+        allowed: true,
+        action: () => this.redirect("/criaQuiz")
+      },
+      {
+            icon: "mdi-checkbox-marked-circle-outline",
+            text: "teste",
+            action: () => this.redirect("/quiz"),
+            allowed: true,
+      },
+      {
+        icon: "mdi-exit-to-app",
+        text: "Logout",
+        action: () => this.logout(),
+        allowed: true,
+      },
+    ];
+
+    this.itemsAluno = [
+      {
+        icon: "mdi-home",
+        "icon-alt": "mdi-chevron-down",
+        text: "Home",
+        allowed: true,
+        action: () => this.redirect("/bemVindo")
       },
       {
         icon: "mdi-checkbox-marked-circle-outline",
         "icon-alt": "mdi-chevron-down",
         text: "Realizar Quiz",
-        active: false,
         allowed: true,
-        children: [
-          {
-            icon: "mdi-checkbox-marked-circle-outline",
-            text: "Strings",
-            action: () => this.redirect("/main"),
-            allowed: true,
-          },
-          {
-            icon: "mdi-checkbox-marked-circle-outline",
-            text: "Estrutura de repeticao",
-            action: () => this.redirect("/main"),
-            allowed: true,
-          },
-          {
-            icon: "mdi-checkbox-marked-circle-outline",
-            text: "Estrutura condicional",
-            action: () => this.redirect("/main"),
-            allowed: true,
-          },
-          {
-            icon: "mdi-checkbox-marked-circle-outline",
-            text: "Vetores",
-            action: () => this.redirect("/main"),
-            allowed: true,
-          }, 
-        ]
+        action: () => this.redirect("/quiz")
       },
       {
-        icon: "mdi-trophy",
-        "icon-alt": "mdi-chevron-down",
-        text: "Ranking",
-        active: false,
-        allowed: true,
-        children: [
-          {
-            icon: "mdi-trophy",
-            text: "Strings",
-            action: () => this.redirect("/main"),
+            icon: "mdi-checkbox-marked-circle-outline",
+            text: "teste",
+            action: () => this.redirect("/quiz"),
             allowed: true,
-          },
-          {
-            icon: "mdi-trophy",
-            text: "Estrutura de repeticao",
-            action: () => this.redirect("/main"),
-            allowed: true,
-          },
-          {
-            icon: "mdi-trophy",
-            text: "Estrutura condicional",
-            action: () => this.redirect("/main"),
-            allowed: true,
-          },
-          {
-            icon: "mdi-trophy",
-            text: "Vetores",
-            action: () => this.redirect("/main"),
-            allowed: true,
-          }, 
-        ]
       },
       {
         icon: "mdi-exit-to-app",
@@ -134,6 +131,14 @@ export default class Menu extends Vue {
     this.mini = !this.mini;
     this.items.forEach(function (item) {
       item.active = false;
+    });
+  }
+
+  public activeDrawerAluno() {
+    this.drawer = !this.drawer;
+    this.mini = !this.mini;
+    this.itemsAluno.forEach(function (itemAluno) {
+      itemAluno.active = false;
     });
   }
 
