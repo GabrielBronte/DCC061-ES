@@ -7,6 +7,7 @@ const Demo = () => import("@/views/demo/Demo.vue");
 import Header from "@/components/Header/Header.vue";
 import Footer from "@/components/Footer/Footer.vue";
 import QuizRoutes from "./quiz/index"
+import CriacaoQuizRoutes from "./cria-quiz/index"
 import BemVindoRoutes from "./bemVindo/index"
 
 const routes: RouteConfig[] = [
@@ -34,6 +35,7 @@ const routes: RouteConfig[] = [
       },
       ...QuizRoutes,
       ...BemVindoRoutes,
+      ...CriacaoQuizRoutes
       // ...ClientRelationshipRoutes,
       // ...InconsistencyRoutes,
       // ...SchedulerRoutes,
