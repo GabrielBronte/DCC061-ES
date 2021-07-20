@@ -2,8 +2,47 @@
 <v-container class="fill-height" fluid style="
       padding-top: 10%;">
   <v-layout row wrap justify-center align-center>
-    <v-btn  color="primary" @click="CadastrarQuiz()">Cadastrar quiz</v-btn>
+  <v-card persistent max-width="1200">
+      <v-card-title class="headline" style="display: flex; text-align: center; justify-content:center;">Criar Quiz</v-card-title>
+      <v-row class="mx-5">
+          <v-col cols="12" v-if="DuasOuMaisQuestoes">
+              <v-text-field class="fadeIn second" id="topico"  label="Tópico" name="topico" type="text" v-model="cadastroQuiz.topico" outlined>
+              </v-text-field>
+          </v-col>
+          <v-col cols="12">
+            <v-text-field class="fadeIn second" id="pergunta"  label="Pergunta" name="pergunta" type="text" v-model="cadastroQuestao.pergunta" outlined>
+            </v-text-field>
+        </v-col>
+          <v-col>
+          <v-row cols="6">
+            <v-row no-gutters>
+              <v-checkbox v-model="cadastroAlternativaLetraA.eCorreto"></v-checkbox>
+            <v-text-field id="letraA" class="fadeIn second" name="letraA" label="a)" v-model="cadastroAlternativaLetraA.descricao"filled>
+            </v-text-field>
+            <v-spacer></v-spacer>
+            <v-checkbox v-model="cadastroAlternativaLetraB.eCorreto"></v-checkbox>
+            <v-text-field id="letraB" class="fadeIn second" name="letraB" label="b)" v-model="cadastroAlternativaLetraB.descricao" filled>
+            </v-text-field>
+            </v-row>
+          </v-row>
+          <v-row cols="6">
+            <v-row no-gutters>
+              <v-checkbox v-model="cadastroAlternativaLetraC.eCorreto"></v-checkbox>
+            <v-text-field id="letraC" class="fadeIn second" name="letraC" label="c)" v-model="cadastroAlternativaLetraC.descricao" filled>
+            </v-text-field>
+            <v-spacer></v-spacer>
+            <v-checkbox v-model="cadastroAlternativaLetraD.eCorreto"></v-checkbox>
+            <v-text-field id="letraD" class="fadeIn second" name="letraD" label="d)" v-model="cadastroAlternativaLetraD.descricao" filled>
+            </v-text-field>
+            </v-row>
+          </v-row>
+        </v-col>
+      </v-row>
+      <v-card-actions style="display: flex; text-align: center; justify-content:center;">
+          <v-btn  color="success" @click="CadastrarQuiz()">Cadastrar quiz</v-btn>
+          <v-btn  color="primary" @click="ProximaQuestao()">Próxima Questão</v-btn>
+      </v-card-actions>
+  </v-card>
+
 </v-layout>
-
-
 </v-container>

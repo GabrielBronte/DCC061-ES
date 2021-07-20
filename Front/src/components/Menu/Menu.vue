@@ -79,12 +79,6 @@ export default class Menu extends Vue {
         action: () => this.redirect("/criaQuiz")
       },
       {
-            icon: "mdi-checkbox-marked-circle-outline",
-            text: "teste",
-            action: () => this.redirect("/quiz"),
-            allowed: true,
-      },
-      {
         icon: "mdi-exit-to-app",
         text: "Logout",
         action: () => this.logout(),
@@ -106,12 +100,6 @@ export default class Menu extends Vue {
         text: "Realizar Quiz",
         allowed: true,
         action: () => this.redirect("/quiz")
-      },
-      {
-            icon: "mdi-checkbox-marked-circle-outline",
-            text: "teste",
-            action: () => this.redirect("/quiz"),
-            allowed: true,
       },
       {
         icon: "mdi-exit-to-app",

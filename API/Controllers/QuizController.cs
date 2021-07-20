@@ -49,6 +49,14 @@ namespace API.Controllers
 
         }
 
+        [HttpGet("GetIdQuizbyTopico")]
+        public async Task<ActionResult<List<Quiz>>> GetIdQuizbyTopico(string topico)
+        {
+
+            return await _context.Quiz.Where(x => x.Topico == topico).ToListAsync();
+
+        }
+
         private async Task<bool> QuizExists(int id)
         {
             return await _context.Quiz.AnyAsync(x => x.Id == id );
