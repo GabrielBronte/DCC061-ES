@@ -29,6 +29,7 @@ namespace API.Controllers
 
             var pontuacaoUsuario = new Pontuacao
             {
+                idQuiz = pontDto.idQuiz,
                 idAluno = pontDto.idAluno,
                 tempoQuiz = pontDto.tempoGasto,
                 pontuacao = pontDto.dificuldade * pontDto.porcentagemAcerto * pontDto.tempoGasto 

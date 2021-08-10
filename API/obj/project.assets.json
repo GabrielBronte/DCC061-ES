@@ -2017,19 +2017,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Daniel\\.nuget\\packages\\": {}
+    "C:\\Users\\Principal\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Git\\Daniel_Gabriel_Guilherme\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Principal\\Desktop\\Daniel_Gabriel_Guilherme\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "E:\\Git\\Daniel_Gabriel_Guilherme\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-      "outputPath": "E:\\Git\\Daniel_Gabriel_Guilherme\\API\\obj\\",
+      "projectPath": "C:\\Users\\Principal\\Desktop\\Daniel_Gabriel_Guilherme\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\Principal\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Principal\\Desktop\\Daniel_Gabriel_Guilherme\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Principal\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2124,7 +2124,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
