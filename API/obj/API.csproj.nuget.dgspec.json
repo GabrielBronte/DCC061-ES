@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Principal\\Desktop\\Daniel_Gabriel_Guilherme\\API\\API.csproj": {}
+    "/home/daniel/Git/Daniel_Gabriel_Guilherme/API/API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Principal\\Desktop\\Daniel_Gabriel_Guilherme\\API\\API.csproj": {
+    "/home/daniel/Git/Daniel_Gabriel_Guilherme/API/API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Principal\\Desktop\\Daniel_Gabriel_Guilherme\\API\\API.csproj",
+        "projectUniqueName": "/home/daniel/Git/Daniel_Gabriel_Guilherme/API/API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\Principal\\Desktop\\Daniel_Gabriel_Guilherme\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\Principal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Principal\\Desktop\\Daniel_Gabriel_Guilherme\\API\\obj\\",
+        "projectPath": "/home/daniel/Git/Daniel_Gabriel_Guilherme/API/API.csproj",
+        "packagesPath": "/home/daniel/.nuget/packages/",
+        "outputPath": "/home/daniel/Git/Daniel_Gabriel_Guilherme/API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Principal\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/daniel/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -109,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }

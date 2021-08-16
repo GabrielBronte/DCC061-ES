@@ -1,1 +1,19 @@
-<div>Cena dos próximos capítulos...</div>
+<v-container>
+    <v-layout>
+        <v-btn color="primary" depressed @click="PopulaQuizzes()">
+            Dalhe população garai
+        </v-btn>
+        <v-col  cols="3" v-for="quiz in allQuizzes" :key="quiz.id">
+            <quizCard :width="250" :height="300" :showModal="showQuizCard"  :title="quiz.topico" titleClass="headline"
+            :body="corpoCard" submitButtonText="Jogar"
+            :submitFunction="selecionarCard">
+            </quizCard>
+        </v-col>
+
+        <modal :width="500" :showModal="exibirModalExclusao" persistent :title="tituloModal" titleClass="headline"
+        :body="corpoModal" cancelButtonText="Não" :cancelFunction="fecharModalExclusao" submitButtonText="Sim"
+        :submitFunction="remover"></modal>
+        
+
+    </v-layout>
+</v-container>

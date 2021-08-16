@@ -1,0 +1,22 @@
+<v-layout
+      v-model="getShowQuizCard"
+      :max-width="getWidth"
+      :max-height="getHeight"
+    >
+      <v-card>
+         <v-card-title :class="getTitleClass" style="justify-content: center;"> <!--class="headline" -->
+          {{getTitle}}
+        </v-card-title>
+        <v-card-text :class="getBodyClass">{{getBody}}</v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            depressed
+            @click="getSubmitFunction"
+          >
+          {{getSubmitButtonText}}
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-layout>
