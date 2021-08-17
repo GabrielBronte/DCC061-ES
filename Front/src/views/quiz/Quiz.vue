@@ -27,40 +27,50 @@ export default class Quiz extends Vue  {
     public notify = Notify();
     public quizHttpService = httpClient(`Quiz`,`https://localhost:5001/api`);
 
-    public allQuizzes: CadastroQuizModel[] = [];
+    public allTopics: CadastroQuizModel[] = [];
     public quizSelecionado: CadastroQuizModel = new CadastroQuizModel();
     public showQuizCard = true;
     public tituloCard = "Titulo do Card";
     public corpoCard = "Clique para realizar a primeira tentativa";
-    public selecionarCard = new Function();
 
 
-    public submitFunction = new Function();
-    public exibirModalExclusao = false;
+    //public submitFunction = new Function();
+    public exibirModalRealizaQuiz = false;
     public tituloModal = "";
     public corpoModal = "";
+    public cachorro = new Function();
 
-  fecharModalExclusao() {
-    this.exibirModalExclusao = false;
-  }
-
-
-    public PopulaQuizzes(){
-        this.quizHttpService
-        .get({ action: "GetAllQuizzes"})
+    mounted(){
+      this.quizHttpService
+        .get({ action: "GetAllTopics"})
         .then(response => {
           if (response.data != null) {
-              this.allQuizzes= response.data;
-              console.log(this.allQuizzes)
+              this.allTopics= response.data;
+              console.log(this.allTopics)
+
           } else {
             this.notify.error("Não foi possivel receber os Quizzes!");
           }
         });
     }
 
-    jogarQuiz(){
-      //this.selecionarCard = funcao que abre o modal para começar a jogar o quiz
+    public handleJogar (quizId: number){
+    console.log(quizId);
     }
+
+    public proximaQuestao(){
+        console.log("teste")
+    }
+
+    
+    public alteraShowModal(){
+      this.exibirModalRealizaQuiz == false? 
+        this.exibirModalRealizaQuiz=true : this.exibirModalRealizaQuiz=false;
+    }
+
+    
+
+   
 
 
 

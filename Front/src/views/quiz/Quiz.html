@@ -1,19 +1,56 @@
 <v-container>
     <v-layout>
-        <v-btn color="primary" depressed @click="PopulaQuizzes()">
+        <!-- <v-btn color="primary" depressed @click="PopulaQuizzes()">
             Dalhe população garai
-        </v-btn>
-        <v-col  cols="3" v-for="quiz in allQuizzes" :key="quiz.id">
-            <quizCard :width="250" :height="300" :showModal="showQuizCard"  :title="quiz.topico" titleClass="headline"
+        </v-btn> -->
+
+        <v-col  cols="5" v-for="topic in allTopics" :key="topic.id">
+            <quizCard :width="500" :height="220" :showModal="showQuizCard"  :title="topic.topico" titleClass="headline"
             :body="corpoCard" submitButtonText="Jogar"
-            :submitFunction="selecionarCard">
+            :submitFunction="alteraShowModal"
+            >
             </quizCard>
         </v-col>
-
-        <modal :width="500" :showModal="exibirModalExclusao" persistent :title="tituloModal" titleClass="headline"
-        :body="corpoModal" cancelButtonText="Não" :cancelFunction="fecharModalExclusao" submitButtonText="Sim"
-        :submitFunction="remover"></modal>
         
+        <v-dialog  v-model="exibirModalRealizaQuiz">
+            <v-card persistent max-width="1200">
+                <v-card-title class="headline" style="display: flex; text-align: center; justify-content:center;">Quiz[COLOCAR TOPICO AUQI]</v-card-title>
+                <v-row class="mx-5">
+                    <v-col cols="12">
+                      <v-text-field class="fadeIn second" id="pergunta"  label="Pergunta" name="pergunta" type="text"  outlined>
+                      </v-text-field>
+                  </v-col>
+                    <v-col>
+                    <v-row cols="6">
+                      <v-row no-gutters>
+                        <v-checkbox ></v-checkbox>
+                      <v-text-field id="letraA" class="fadeIn second" name="letraA" label="a)" filled>
+                      </v-text-field>
+                      <v-spacer></v-spacer>
+                      <v-checkbox ></v-checkbox>
+                      <v-text-field id="letraB" class="fadeIn second" name="letraB" label="b)"  filled>
+                      </v-text-field>
+                      </v-row>
+                    </v-row>
+                    <v-row cols="6">
+                      <v-row no-gutters>
+                        <v-checkbox ></v-checkbox>
+                      <v-text-field id="letraC" class="fadeIn second" name="letraC" label="c)"  filled>
+                      </v-text-field>
+                      <v-spacer></v-spacer>
+                      <v-checkbox ></v-checkbox>
+                      <v-text-field id="letraD" class="fadeIn second" name="letraD" label="d)" filled>
+                      </v-text-field>
+                      </v-row>
+                    </v-row>
+                  </v-col>
+                </v-row>
+                <v-card-actions style="display: flex; text-align: center; justify-content:center;">
+                    <v-btn  color="success" @click="ProximaQuestao()">Confirmar</v-btn>
+                </v-card-actions>
+            </v-card>
+          
+          </v-dialog>
 
     </v-layout>
 </v-container>

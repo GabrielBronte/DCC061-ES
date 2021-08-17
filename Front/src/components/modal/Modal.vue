@@ -15,6 +15,9 @@ export default class Modal extends Vue {
   @Prop(Number)
   public width?: number;
 
+  @Prop(Number)
+  public height?: number;
+
   @Prop(String)
   public title?: string;
 
@@ -49,6 +52,10 @@ export default class Modal extends Vue {
 
   get getWidth() {
     return this.width;
+  }
+
+  get getHeight() {
+    return this.height;
   }
 
   get getTitle() {
