@@ -41,11 +41,16 @@ namespace API.Controllers
         }
 
         [HttpGet("GetQuizById")]
-        public async Task<ActionResult<List<Questao>>> GetQuizById(int idQuiz)
+        public async Task<ActionResult<Quiz>> GetQuizById(int idQuiz)
         {
             if(!await QuizExists(idQuiz)) return BadRequest("idQuiz invalido");
-            
-            return await  _context.Questao.Include(p => p.Alternativas).Where(x => x.QuizId == idQuiz).ToListAsync();
+            else
+            {
+                return _context.Quiz.Include(q => q.Questao).ThenInclude(a => a.Alternativas)
+                    .FirstOrDefault(x => x.Id == idQuiz);
+            }
+
+            return BadRequest("Erro ao encontrar quiz");
 
         }
 
@@ -60,14 +65,13 @@ namespace API.Controllers
         [HttpGet("GetAllQuizzes")]
         public async Task<List<Quiz>> GetAllQuizzes()
         {
-            return await _context.Quiz.Include(q => q.Questao).ThenInclude(a => a.Alternativas).Include(p => p.Pontuacao).ToListAsync();
+            return await _context.Quiz.ToListAsync();
         }
         
         [HttpGet("GetAllTopics")]
-        public async Task<System.Collections.Generic.IEnumerable<string>> GetAllTopics()
+        public async Task<List<Quiz>> GetAllTopics()
         {
-            var allQuizzes =  await _context.Quiz.Where(x => x.Topico != null).ToListAsync();
-            return allQuizzes.Select(x => x.Topico);
+            return  await _context.Quiz.Where(x => x.Topico != null).ToListAsync();
         }
 
         private async Task<bool> QuizExists(int id)
