@@ -51,6 +51,7 @@ public class TesteCadastroAlunoTest {
         Thread.Sleep(15000);
     }
     
+    
     [Test]
     public void testeCadastroProfessor() {
         paginaInicial();
@@ -92,5 +93,44 @@ public class TesteCadastroAlunoTest {
         Thread.Sleep(3000);
         driver.FindElement(By.XPath("//*[@id='app']/div/main/div/div/div[2]/div/div/div[3]/button[1]")).Click();
         Thread.Sleep(5000);
+    }
+
+    [Test]
+    public void testeCriacaoQuiz()
+    {
+        testeLoginProfessor();
+        driver.Manage().Window.Size = new Size(1920, 1080);
+        driver.FindElement(By.XPath("//*[@id='app']/div/div/nav/div[1]/div/div[2]")).Click();
+        driver.FindElement(By.XPath("//*[@id='topico']")).Click();
+        driver.FindElement(By.XPath("//*[@id='topico']")).SendKeys("Vetores");
+        driver.FindElement(By.XPath("//*[@id='pergunta']")).Click();
+        driver.FindElement(By.XPath("//*[@id='pergunta']")).SendKeys("Qual a primeira posição de um vetor?");
+        driver.FindElement(By.XPath("//*[@id='letraA']")).Click();
+        driver.FindElement(By.XPath("//*[@id='letraA']")).SendKeys("0");
+        driver.FindElement(By.XPath("//*[@id='letraB']")).Click();
+        driver.FindElement(By.XPath("//*[@id='letraB']")).SendKeys("1");
+        driver.FindElement(By.XPath("//*[@id='letraC']")).Click();
+        driver.FindElement(By.XPath("//*[@id='letraC']")).SendKeys("2");
+        driver.FindElement(By.XPath("//*[@id='letraD']")).Click();
+        driver.FindElement(By.XPath("//*[@id='letraD']")).SendKeys("3");
+        driver.FindElement(By.XPath("//*[@id='app']/div/main/div/div/div[2]/div/div/div/div[2]/div[3]/div[1]/div/div[1]/div/div[1]/div/div")).Click();
+        Thread.Sleep(7000);
+        driver.FindElement(By.XPath("//*[@id='app']/div/main/div/div/div[2]/div/div/div/div[3]/button[1]")).Click();
+        Thread.Sleep(15000);
+    }
+    
+    [Test]
+    public void testeRealizacaoQuiz()
+    {
+        testeLoginAluno();
+        driver.Manage().Window.Size = new Size(1920, 1080);
+        driver.FindElement(By.XPath("//*[@id='app']/div/div/nav/div[1]/div/div[3]")).Click();
+        Thread.Sleep(3000);
+        driver.FindElement(By.XPath("//*[@id='app']/div/main/div/div/div[2]/div/div[2]/div[1]/div/div[3]/button[2]")).Click();
+        Thread.Sleep(3000);
+        driver.FindElement(By.XPath("//*[@id='app']/div[3]/div/div/div[2]/div[2]/div[1]/div/div[2]/div/div[1]/div/div")).Click();
+        Thread.Sleep(3000);
+        driver.FindElement(By.XPath("//*[@id='app']/div[3]/div/div/div[3]/button")).Click();
+        Thread.Sleep(15000);
     }
 }
