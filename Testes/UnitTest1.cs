@@ -51,4 +51,46 @@ public class TesteCadastroAlunoTest {
         Thread.Sleep(15000);
     }
     
+    [Test]
+    public void testeCadastroProfessor() {
+        paginaInicial();
+        driver.FindElement(By.CssSelector(".v-btn:nth-child(2) > .v-btn__content")).Click();
+        Thread.Sleep(3000);
+        driver.FindElement(By.Id("userName-login")).Click();
+        driver.FindElement(By.Id("userName-login")).SendKeys("professor");
+        Thread.Sleep(3000);
+        driver.FindElement(By.Id("password")).Click();
+        driver.FindElement(By.Id("password")).SendKeys("String1");
+        driver.FindElement(By.XPath("//*[@id='app']/div/main/div/div/div[2]/div/div/div[2]/div[3]/div/div/div[1]/div/div")).Click();
+        Thread.Sleep(3000);
+        driver.FindElement(By.CssSelector(".float-right > .v-btn__content")).Click();
+        Thread.Sleep(15000);
+    }
+    
+    [Test]
+    public void testeLoginProfessor()
+    {
+        paginaInicial();
+        driver.FindElement(By.XPath("//*[@id='userName-login']")).Click();
+        driver.FindElement(By.XPath("//*[@id='userName-login']")).SendKeys("professor");
+        Thread.Sleep(3000);
+        driver.FindElement(By.XPath("//*[@id='password']")).Click();
+        driver.FindElement(By.XPath("//*[@id='password']")).SendKeys("String1");
+        Thread.Sleep(3000);
+        driver.FindElement(By.XPath("//*[@id='app']/div/main/div/div/div[2]/div/div/div[3]/button[1]")).Click();
+        Thread.Sleep(15000);
+    }
+    [Test]
+    public void testeLoginAluno()
+    {
+        paginaInicial();
+        driver.FindElement(By.XPath("//*[@id='userName-login']")).Click();
+        driver.FindElement(By.XPath("//*[@id='userName-login']")).SendKeys("aluno");
+        Thread.Sleep(3000);
+        driver.FindElement(By.XPath("//*[@id='password']")).Click();
+        driver.FindElement(By.XPath("//*[@id='password']")).SendKeys("String1");
+        Thread.Sleep(3000);
+        driver.FindElement(By.XPath("//*[@id='app']/div/main/div/div/div[2]/div/div/div[3]/button[1]")).Click();
+        Thread.Sleep(5000);
+    }
 }
